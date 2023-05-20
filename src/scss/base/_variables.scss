@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+// Fonts
+$header_font: 'Montserrat', sans-serif;
+$text_font: 'Roboto', sans-serif;
+
+// Media Queries
+$phone: 480px;
+$tablet: 768px;
+$desktop: 1024px;
+
+// Colors
+$black: #000000;
+$yellow: #e08709;
+$brownLight: #FEFAE0;
+$brown: #DDA15E;
+$brownDark: #BC6C25; 
+$green: #36A543;
+$white: #ffffff;
+$gray: #e1e1e1;
+$darkGray: #333333;
+// Colors - Weather
+$weather: #caf0f8;
+$weatherBg: #06284d;
+// Color - Alerts
+$red: #da0f2a;
+$pink: #f3ccd2;
+$greenLight: #a4f0ad;
+
+
+$gap: 5rem;
+
+// Fonts weight
+$thin: 300;
+$regular: 400;
+$bold: 700;
+$bolder: 900;
