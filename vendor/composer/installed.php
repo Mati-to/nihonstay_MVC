@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'matia/nihonstay_app',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '6776abe250d56a88f6f0513783f1b564171fc963',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -29,9 +29,9 @@
             'dev_requirement' => false,
         ),
         'matia/nihonstay_app' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '6776abe250d56a88f6f0513783f1b564171fc963',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
