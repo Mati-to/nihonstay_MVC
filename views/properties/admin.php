@@ -61,8 +61,8 @@
           <td> <?php echo $landlord->firstname . " " . $landlord->lastname; ?> </td>
           <td> <?php echo $landlord->phone; ?> </td>
           <td>
-            <a href="/nihonstay_app/admin/landlords/update.php?id=<?php echo $landlord->id; ?>" class="green-button-block">Update</a>
-            <form method="POST" class="w-100">
+            <a href="/landlords/update?id=<?php echo $landlord->id; ?>" class="green-button-block">Update</a>
+            <form method="POST" class="w-100" action="/landlords/delete">
               <input type="hidden" name="deleteId" value="<?php echo $landlord->id; ?>">
               <input type="hidden" name="type" value="landlord">
               <input type="submit" class="red-button-block" value="Delete">
