@@ -2,7 +2,7 @@
 
 define('TEMPLATES_PATH', __DIR__ . '../../views/templates');
 define('FUNCTIONS_PATH', __DIR__ . 'functions.php');
-define('IMAGES_FOLDER', __DIR__ . '/../images/');
+define('IMAGES_FOLDER', $_SERVER['DOCUMENT_ROOT'] . 'images/');
 
 function addTemplate(string $name, bool $main = false)
 {

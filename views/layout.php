@@ -1,12 +1,3 @@
-<?php
-if (!isset($_SESSION)) {
-  session_start();
-}
-
-$auth = $_SESSION['login'] ?? false;
-?>
-
-
 <!DOCTYPE html>
 <html lang='en'>
 
@@ -14,7 +5,7 @@ $auth = $_SESSION['login'] ?? false;
   <meta charset='UTF-8'>
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <link rel='stylesheet' href='../build/css/app.css'>
+  <link rel='stylesheet' href='/build/css/app.css'>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css' />
   <title>NihonStay - Proyect </title>
 </head>
@@ -23,10 +14,10 @@ $auth = $_SESSION['login'] ?? false;
   <header class='header <?php echo $main ? 'main' : '' ?>'>
     <div class='container header-container'>
       <div class='bar'>
-        <a href='/nihonstay_app/views/index.php'> <img class='logo' src='/nihonstay_app/src/img/nihonLogo.png' alt='Nihongo Logo'></a>
+        <a href='/nihonstay_app/views/index.php'> <img class='logo' src='/img/nihonLogo.png' alt='Nihongo Logo'></a>
 
         <div class='mobile-menu'>
-          <img src="/nihonstay_app/src/img/menu-mobile.svg" alt="responsive menu">
+          <img src="../img/menu-mobile.svg" alt="responsive menu">
         </div>
 
         <nav class='navbar'>
