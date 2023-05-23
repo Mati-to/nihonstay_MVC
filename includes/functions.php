@@ -38,12 +38,14 @@ function checkClassType($type)
   return in_array($type, $types);
 }
 
-function idVerifier($id)
+function idVerifier(string $url)
 {
+  $id = $_GET['id'];
   $id = filter_var($id, FILTER_VALIDATE_INT);
   if (!$id) {
-    header('Location: /nihonstay_app/admin/index.php');
+    header("Location: {$url}");
   }
+  return $id;
 }
 
 function showFeedback($code): string

@@ -12,11 +12,14 @@ class PropsController
   public static function index(Router $router)
   {
     $properties = Property::getAll();
+    $landlords = Landlord::getAll();
+
     $getResult = $_GET['result'] ?? null;
 
     $router->render('properties/admin', [
       'properties' => $properties,
-      'getResult' => $getResult
+      'getResult' => $getResult,
+      'landlords' => $landlords
     ]);
   }
 
@@ -41,7 +44,7 @@ class PropsController
       if ($_FILES['property']['tmp_name']['image']) {
         $img = Image::make($_FILES['property']['tmp_name']['image'])->fit(800, 600);
         $property->setImage($imageName);
-      } 
+      }
 
       $validation = $property->validation();
 
@@ -66,8 +69,62 @@ class PropsController
     ]);
   }
 
-  public static function update()
+  public static function update(Router $router)
   {
-    echo 'Editar propiedad...';
+    $id = idVerifier('/admin');
+    $property = Property::getById($id);
+    $landlords = Landlord::getAll();
+    $validation = Property::getValidation();
+
+    if ($id !== intval($property->id)) {
+      header('Location: /admin');
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+      $arr = $_POST['property'];
+      $property->sync($arr);
+
+      $validation = $property->validation();
+
+      $imageName = md5(uniqid('')) . '.jpg';
+
+      if ($_FILES['property']['tmp_name']['image']) {
+        $img = Image::make($_FILES['property']['tmp_name']['image'])->fit(800, 600);
+        $property->setImage($imageName);
+      } else {
+        $imageName = $property->image;
+      }
+
+      if (empty($validation)) {
+        if ($_FILES['property']['tmp_name']['image']) {
+          $img->save(IMAGES_FOLDER . $imageName);
+        }
+        $property->save();
+      }
+    }
+
+    $router->render('properties/update', [
+      'property' => $property,
+      'landlords' => $landlords,
+      'validation' => $validation
+    ]);
   }
-}
+
+  public static function delete()
+  {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+      $id = $_POST['deleteId'];
+      $id = filter_var($id, FILTER_VALIDATE_INT);
+
+      if ($id) {
+        $type = $_POST['type'];
+        if (checkClassType($type)) {
+          $property = Property::getById($id);
+          $property->delete();
+        }
+      }
+    }
+  }
+};

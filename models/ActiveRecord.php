@@ -60,7 +60,7 @@ class ActiveRecord {
     $result = self::$db->query($query);
 
     if ($result) {
-      header('Location: /nihonstay_app/admin/index.php?result=2');
+      header('Location: /admin?result=2');
     }
   }
 
@@ -71,7 +71,7 @@ class ActiveRecord {
 
     if ($result) {
       $this->deleteImage();
-      header('Location: /nihonstay_app/admin/index.php?result=3');
+      header('Location: /admin?result=3');
     }
   }
 
