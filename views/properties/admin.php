@@ -1,3 +1,4 @@
+
 <main class='container section'>
   <h1>Admin - Houses and Landlords</h1>
   <?php
@@ -30,7 +31,7 @@
           <td><img src="../images/<?php echo $property->image; ?>" class="table-image"></td>
           <td> $ <?php echo $property->prize; ?> </td>
           <td>
-            <a href="/nihonstay_app/admin/props/update.php?id=<?php echo $property->id; ?>" class="green-button-block">Update</a>
+            <a href="/properties/update?id=<?php echo $property->id; ?>" class="green-button-block">Update</a>
             <form method="POST" class="w-100">
               <input type="hidden" name="deleteId" value="<?php echo $property->id; ?>">
               <input type="hidden" name="type" value="property">

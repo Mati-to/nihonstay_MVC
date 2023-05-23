@@ -39,7 +39,7 @@ class ActiveRecord {
     $result = self::$db->query($query);
 
     if ($result) {
-      header('Location: /nihonstay_app/admin/index.php?result=1');
+      header('Location: /admin?result=1');
     }
   }
 

@@ -12,6 +12,11 @@ class Router
     $this->routesGET[$url] = $fx;
   }
 
+  public function post($url, $fx)
+  {
+    $this->routesPOST[$url] = $fx;
+  }
+
   public function checkRoutes()
   {
     $url = $_SERVER['PATH_INFO'] ?? '/';
@@ -19,17 +24,20 @@ class Router
 
     if ($method === 'GET') {
       $fx = $this->routesGET[$url] ?? null;
+    } else {
+      $fx = $this->routesPOST[$url] ?? null;
     }
+
     if ($fx) {
       call_user_func($fx, $this);
     } else {
-      echo 'Página no encontrada...';
+      echo '404 Page Not Found';
     }
-  }  
+  }
 
   public function render($view, $data = [])
   {
-    foreach($data as $key => $value) {
+    foreach ($data as $key => $value) {
       $$key = $value;
     }
 
@@ -39,4 +47,3 @@ class Router
     include __DIR__ . "/views/layout.php";
   }
 }
-
