@@ -39,7 +39,7 @@
     <fieldset>
       <legend>Contact Information</legend>
 
-      <p>How do you want to be contacted?</p>
+      <p>How do you prefer to be contacted?</p>
       <div class='contact-form'>
         <label for='phone-contact'>Phone</label>
         <input name='contact[contact]' type='radio' value='phone' id='phone-contact' required>
