@@ -1,13 +1,8 @@
 <?php
 
-define('TEMPLATES_PATH', __DIR__ . '../../views/templates');
 define('FUNCTIONS_PATH', __DIR__ . 'functions.php');
 define('IMAGES_FOLDER', $_SERVER['DOCUMENT_ROOT'] . 'images/');
 
-function addTemplate(string $name, bool $main = false)
-{
-  include TEMPLATES_PATH . "/{$name}.php";
-}
 
 function isAuthenticated(): bool
 {
@@ -38,7 +33,7 @@ function checkClassType($type)
   return in_array($type, $types);
 }
 
-function idVerifier(string $url)
+function idVerifier(string $url): int
 {
   $id = $_GET['id'];
   $id = filter_var($id, FILTER_VALIDATE_INT);
@@ -48,7 +43,7 @@ function idVerifier(string $url)
   return $id;
 }
 
-function showFeedback($code): string
+function showFeedback(int $code): string
 {
   $message = '';
   switch ($code) {
