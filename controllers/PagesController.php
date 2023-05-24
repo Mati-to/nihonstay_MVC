@@ -4,6 +4,7 @@ namespace Controllers;
 
 use MVC\Router;
 use Model\Property;
+use PHPMailer\PHPMailer\PHPMailer;
 
 class PagesController
 {
@@ -115,9 +116,51 @@ class PagesController
   public static function contact(Router $router)
   {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      helper($_POST);
-    }
 
+      $form = $_POST['contact'];
+
+      $email = new PHPMailer();
+
+      // SMTP Config 
+      $email->isSMTP();
+      $email->Host = 'sandbox.smtp.mailtrap.io';
+      $email->SMTPAuth = true;
+      $email->Username = '6229140970ab29';
+      $email->Password = 'b5b0103978d87e';
+      $email->SMTPSecure = 'tls';
+      $email->Port = 2525;
+
+      // Email Config
+      $email->setFrom('admin@nihonstay.com');
+      $email->addAddress('admin@nihonstay.com', 'NihonStay.com');
+      $email->Subject = 'You have a new email';
+      
+      // HTML
+      $email->isHTML(true);
+      $email->CharSet = 'utf-8';
+
+      $body = '<html>';
+      $body .= '<p>You have a new email</p>';
+      $body .= '<p>Name: ' .$form['name']. '</p>'; 
+      $body .= '<p>Email: ' .$form['email']. '</p>'; 
+      $body .= '<p>Phone: ' .$form['phone']. '</p>'; 
+      $body .= '<p>Message: ' .$form['message']. '</p>'; 
+      $body .= '<p>Rent: ' .$form['type']. '</p>'; 
+      $body .= '<p>Prize: $' .$form['prize']. '</p>'; 
+      $body .= '<p>Wants to be contacted by: ' .$form['type']. '</p>'; 
+      $body .= '<p>Date: ' .$form['date']. '</p>'; 
+      $body .= '<p>Time: ' .$form['time']. '</p>'; 
+      $body .= '</html>';
+
+
+      $email->Body = $body;
+
+      if ($email->send()) {
+        echo 'Message sent successfully';
+      } else {
+        echo 'Message error';
+      }
+    }
 
     $router->render('pages/contact', [
 

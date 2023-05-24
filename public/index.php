@@ -4,6 +4,7 @@ require_once __DIR__ . '/../includes/app.php';
 use MVC\Router;
 use Controllers\PropsController;
 use Controllers\LandController;
+use Controllers\LoginController;
 use Controllers\PagesController;
 
 $router = new Router();
@@ -31,6 +32,11 @@ $router->get('/property', [PagesController::class, 'property']);
 $router->get('/blog', [PagesController::class, 'blog']);
 $router->get('/contact', [PagesController::class, 'contact']);
 $router->post('/contact', [PagesController::class, 'contact']);
+
+// Authentication routes
+$router->get('/login', [LoginController::class, 'login']);
+$router->post('/login', [LoginController::class, 'login']);
+$router->get('/logout', [LoginController::class, 'logout']);
 
 $router->checkRoutes();
 
