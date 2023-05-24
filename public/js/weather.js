@@ -23,12 +23,12 @@ async function getWeatherDay() {
   const wind = document.querySelector('.wind-box span');
 
   const weatherImages = {
-    'Clear': '../src/img/weather_clear.svg',
-    'Rain': '../src/img/weather_rain.svg',
-    'Snow': '../src/img/weather_snow.svg',
-    'Clouds': '../src/img/weather_clouds.svg',
-    'Haze': '../src/img/weather_haze.svg',
-    'Mist': '../src/img/weather_haze.svg'
+    'Clear': '../img/weather_clear.svg',
+    'Rain': '../img/weather_rain.svg',
+    'Snow': '../img/weather_snow.svg',
+    'Clouds': '../img/weather_clouds.svg',
+    'Haze': '../img/weather_haze.svg',
+    'Mist': '../img/weather_haze.svg'
   };
 
   image.src = weatherImages[dataDay.weather[0].main] || '';

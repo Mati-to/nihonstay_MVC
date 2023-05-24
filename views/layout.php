@@ -14,19 +14,19 @@
   <header class='header <?php echo $main ? 'main' : '' ?>'>
     <div class='container header-container'>
       <div class='bar'>
-        <a href='/nihonstay_app/views/index.php'> <img class='logo' src='/img/nihonLogo.png' alt='Nihongo Logo'></a>
+        <a href='/home'> <img class='logo' src='/img/nihonLogo.png' alt='Nihongo Logo'></a>
 
         <div class='mobile-menu'>
           <img src="../img/menu-mobile.svg" alt="responsive menu">
         </div>
 
         <nav class='navbar'>
-          <a href='/nihonstay_app/views/aboutus.php'>About Us</a>
-          <a href='/nihonstay_app/views/rentals.php'>Rentals</a>
-          <a href='/nihonstay_app/views/blog.php'>Blog</a>
-          <a href='/nihonstay_app/views/contact.php'>Contact</a>
+          <a href='/about-us'>About Us</a>
+          <a href='/properties'>Rentals</a>
+          <a href='/blog'>Blog</a>
+          <a href='/contact'>Contact</a>
           <?php if ($auth) : ?>
-            <a href='/nihonstay_app/views/logout.php'>Log out</a>
+            <a href='/logout'>Log out</a>
           <?php endif; ?>
         </nav>
 
@@ -44,10 +44,10 @@
   <footer id='footer' class='section'>
     <div class='container footer-container'>
       <nav id='nav-footer' class='navbar'>
-        <a href='/nihonstay_app/views/aboutus.php'>About Us</a>
-        <a href='/nihonstay_app/views/rentals.php'>Rentals</a>
-        <a href='/nihonstay_app/views/blog.php'>Blog</a>
-        <a href='/nihonstay_app/views/contact.php'>Contact</a>
+        <a href='/about-us'>About Us</a>
+        <a href='/properties'>Rentals</a>
+        <a href='/blog'>Blog</a>
+        <a href='/contact'>Contact</a>
       </nav>
     </div>
 
