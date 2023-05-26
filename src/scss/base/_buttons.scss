@@ -1,19 +1,25 @@
 
 .brown-button {
   @include button($brown, $black);
+  margin-top: 20px;
 }
 
 .green-button {
   @include button($green, $white);
+  margin-top: 20px;
+
 }
 
 .red-button-block {
-  display: block;
-  width: 50%;
+  display: inline;
+  width: 100px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   @include button($red, $white)
 }
 .green-button-block {
-  display: block;
-  width: 50%;
+  display: inline;
+  width: 100px;
+  margin-top: 10px;
   @include button($green, $white)
 }

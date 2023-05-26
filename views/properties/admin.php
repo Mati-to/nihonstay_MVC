@@ -29,7 +29,7 @@
           <td> <?php echo $property->title; ?> </td>
           <td><img src="../images/<?php echo $property->image; ?>" class="table-image"></td>
           <td> $ <?php echo $property->prize; ?> </td>
-          <td>
+          <td class="td-buttons">
             <a href="/properties/update?id=<?php echo $property->id; ?>" class="green-button-block">Update</a>
             <form method="POST" class="w-100" action="/properties/delete">
               <input type="hidden" name="deleteId" value="<?php echo $property->id; ?>">
@@ -60,7 +60,7 @@
           <td> <?php echo $landlord->id; ?> </td>
           <td> <?php echo $landlord->firstname . " " . $landlord->lastname; ?> </td>
           <td> <?php echo $landlord->phone; ?> </td>
-          <td>
+          <td class="td-buttons">
             <a href="/landlords/update?id=<?php echo $landlord->id; ?>" class="green-button-block">Update</a>
             <form method="POST" class="w-100" action="/landlords/delete">
               <input type="hidden" name="deleteId" value="<?php echo $landlord->id; ?>">

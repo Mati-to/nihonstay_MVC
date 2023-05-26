@@ -37,9 +37,11 @@ if(!isset($main)){
           <a href='/properties'>Rentals</a>
           <a href='/blog'>Blog</a>
           <a href='/contact'>Contact</a>
-          <?php if ($auth && !$loginPage) : ?>
+          <?php if ($auth && !$loginPage) { ?>
             <a href='/logout'>Log out</a>
-          <?php endif; ?>
+          <?php } else { ?>
+            <a href='/login'>Login</a>
+          <?php } ?>
         </nav>
 
       </div> <!-- Bar -->
@@ -51,6 +53,8 @@ if(!isset($main)){
   </header>
 
   <?php echo $pageContent; ?>
+
+  <button id="back-to-top">Back to Top</button>
 
   <footer id='footer' class='section'>
     <div class='container footer-container'>
@@ -64,7 +68,6 @@ if(!isset($main)){
 
     <p class='copyright'>All rights reserved <?php echo date('Y'); ?> &copy;</p>
   </footer>
-
 
   <script src='../js/weather.js'></script>
   <script src='../js/app.js'></script>

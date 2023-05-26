@@ -32,10 +32,21 @@ table.properties {
 
   .table-image {
     width: 10rem;
+    margin: auto;
   }
 
   td {
     text-align: center;
+    vertical-align: middle;
+    text-align: center;
+    border-bottom: 1px solid $gray;
+  }
+
+  .td-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
@@ -43,3 +54,4 @@ table.properties {
   width: 20rem;
   margin-bottom: 1.5rem;
 }
+
