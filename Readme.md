@@ -10,7 +10,9 @@ architectures to create a web application.
 - Create, Read, Update, Delete (CRUD): users can create and publish a house for rent, read information about available 
 vacation homes, update information about a house already published or delete a previously published house.
 - Search for a vacational house: users can search for available vacation homes in Japan.
-- Login: users can ask for a user and then log in to access the application's functionalities.
+- Login: people can ask for a registered user to login and access the admin interface. To ask for a registered user, they have
+to use the Contact form in the contact page.
+- Admin: users can publish, update and delete their own rental house information.
 
 ## Stack 
 - HTML
