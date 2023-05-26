@@ -19,6 +19,14 @@ class Router
 
   public function checkRoutes()
   {
+    session_start();
+    $auth = $_SESSION['login'] ?? null;
+
+    $protected_routes = [
+      '/admin', '/properties/create', '/properties/update', '/properties/delete',
+      '/landlords/create', '/landlords/update', '/landlords/delete'
+    ];
+
     $url = $_SERVER['PATH_INFO'] ?? '/';
     $method = $_SERVER['REQUEST_METHOD'];
 
@@ -26,6 +34,10 @@ class Router
       $fx = $this->routesGET[$url] ?? null;
     } else {
       $fx = $this->routesPOST[$url] ?? null;
+    }
+
+    if (in_array($url, $protected_routes) && !$auth) {
+      header('Location: /login');
     }
 
     if ($fx) {

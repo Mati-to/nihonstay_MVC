@@ -1,3 +1,15 @@
+<?php 
+if(!isset($_SESSION)){
+    session_start();
+}
+ 
+$auth = $_SESSION['login'] ?? false;
+ 
+if(!isset($main)){
+    $main = false;
+}
+?>
+
 <!DOCTYPE html>
 <html lang='en'>
 
@@ -25,7 +37,7 @@
           <a href='/properties'>Rentals</a>
           <a href='/blog'>Blog</a>
           <a href='/contact'>Contact</a>
-          <?php if ($auth) : ?>
+          <?php if ($auth && !$loginPage) : ?>
             <a href='/logout'>Log out</a>
           <?php endif; ?>
         </nav>
@@ -33,8 +45,7 @@
       </div> <!-- Bar -->
 
       <?php if ($main) { ?>
-        <h1 class='animate__animated animate__fadeInx'>Vacational House Rent in Japan</h1>
-
+        <h1 class='animate__animated animate__fadeIn'>Vacational House Rent in Japan</h1>
       <?php } ?>
     </div>
   </header>
